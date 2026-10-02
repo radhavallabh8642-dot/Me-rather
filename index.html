@@ -77,7 +77,7 @@ $(`<div class="logo">◆ DILEMMA ◆</div><h1 class="title">Would You Rather</h1
 <div style="display:grid;gap:10px;margin-top:16px">
 <button class="btn" onclick="trial()">Start 1-day free trial</button>
 <button class="btn ghost" onclick="subs()">Subscribe</button>
-<button class="btn ghost" onclick="guest()">Continue as guest</button></div>
+<button class="btn ghost" onclick="codePage()">I have a free pass code</button><button class="btn ghost" onclick="guest()">Continue as guest</button></div>
 <p class="lock" style="font-size:13px">Guests get 3 dilemmas a day. Trial & members get unlimited dilemmas, comments and side quests.</p></div>`)}
 function trial(){S.user={name:"Member",trialEnd:Date.now()+864e5};go()}
 function guest(){S.user={name:"Guest",guest:true,left:3};go()}
@@ -117,7 +117,14 @@ function quest(){
 if(S.user.guest)return `<div class="card lock"><h3 style="color:var(--gold)">Members only</h3><p>Spicy Truth & Dare quests unlock with the trial or a subscription.</p><button class="btn" onclick="trial()">Start free trial</button></div>`;
 return `<div class="card"><div class="quest" id="qt">Pick your poison…</div><div class="row"><button class="btn" style="flex:1" onclick="q('T')">Truth</button><button class="btn ghost" style="flex:1" onclick="q('D')">Dare</button></div></div>`}
 function q(t){const a=t=="T"?TRUTH:DARE;document.getElementById("qt").innerHTML=(t=="T"?"💬 <b>Truth</b><br>":"🔥 <b>Dare</b><br>")+a[rnd(a.length)]}
-home();
+const H=["93ed3c12371f358d568146cd15adf817d9dc288ed69e15a92f18d37fe7fab5e3", "7ca15d55235284bf3041048b586dfe007f3d702d4a89f79c654cfc51fd75a339", "e99767ad6006490c20698e3c592f226d3b7ac6a475ba2f927f7ea855390dcbbd", "6b162fc5a35ad3530046527864a3e55fd9706ef807bf91d11430cbbabe01a56d", "7a48b180c4f8675af334ebc21d3b3e71b75cfe6d3d0fddd79bffb130f56b5c65", "7bff3f4d19c99c985ec459a52c165f0bd8c7d1cbbcc57b49b536ff1cee3cd963", "7b5ac677ff3e5c1374e128587010b7456c512e71dbaa758126ee30e3ff81d015", "99591ad37b2fd6e2dc12bb3f508ca4134845a30262cf6cb4fec68414002af697", "55b024d0eeabfacacc0c09acfa5092c35c9e17d3850de19a557ebf2649e6f70c", "5974f0947a818ae117bc56147d3000b637e54fe89a3504b4ed685acc3a23ea44", "e8e0fb5cdcf4102d84099984c6baa87f9516009c6877057c296220a9ab9fad7a", "73fad06e5afa7824abfea9076bb8fa01f24b4430c979b26d92a83366b08842e1", "d5d0800e5bb6701bd4cb3c7600327ad20928082db5507ab14883e8a105832ce5", "74e99d17fa38570f3d99e2628fce65381860ecf58429bf6b9fb4f178b4b1bb06", "82ac45bf4cd83022c04532a819997e4a17fd3d4e918848f014890674824724b4", "97ce30350234483679050edb43d6b484783258569e55daadacfb0421ded864b4", "5129ab211f42c914dc07a29b9f8026af8ddb5f5b6a052ce4fd8d57a4edb17d50", "138f698758aa7914ffab1ad650f0dc12e43aa71ca2d874e999d1f655c4fe416b", "7cf65a5abc118eb7631b6faf98c61195b07f054d43fe1466b3ab0b4f5b5c97f6", "07e4fac79807c8c441cb6ac2ae6a376112006356f39418c09418aa7a2e9a5d44", "2fc67334d5a2d8c86faaf5aee5367cdf700380962ae31f438b5a8818d7a6d581", "fb6554d1366a3b9d20611064ab640706174a8971fe41d21ba2a8f62756308256", "e0b58878fd132a9d3fc9e158e997d7f3a7127bdaeee4c8a36eb064bafd04f836", "545eb53d4694951129962ff994f69f6b51a1286fef673806e95e0cc052cbbd11", "83cd179a3a90c13cc661f8672dc7287e7777bd917bda29b0ab212fb2d5fc7ad7", "1f20d06e2db47ebfa627c275466546ff481885ad6c3871fe681a8a0f63825b05", "c564375a6138969a0ab61e4704b70216226c24a4f7543d3d5f8100c8087fc4bc", "2acbdaddd3c98b05df3778f65b8fbbb9cfda30fcb3bbc803fff3691266643cfe", "4406608a676544caa2f5caccde24a27c6003943739baeff0db91a6ff3b30529b", "c648edb3a7d17993d1dd3a44b254b97af8b9ae453fc875bffcfa8a77b5725891", "32f5bead3e7e6aa1c4d67179da9a70bdc54d7ea54e866bc0cd95836785e719b1"];
+async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function codePage(msg){$(`<div class="logo">◆ DILEMMA ◆</div><h2 class="title" style="font-size:26px">Free pass</h2><div class="card"><p class="lock">Enter your lifetime pass code</p><input id="pc" placeholder="DLM-XXXX-XXXX" autocapitalize="characters"><p style="color:#a33;min-height:20px">${msg||""}</p><div class="row"><button class="btn" onclick="redeem()">Unlock</button><button class="btn ghost" onclick="home()">Back</button></div></div>`)}
+async function redeem(){const c=document.getElementById("pc").value.trim().toUpperCase();let ok=false;try{ok=H.includes(await sha(c))}catch(e){}
+if(!ok)return codePage("That code isn't valid.");try{localStorage.setItem("wyr_pass","1")}catch(e){}S.user={name:"Member",plan:"Lifetime"};go()}
+
+let P=false;try{P=localStorage.getItem('wyr_pass')==='1'}catch(e){}
+if(new URLSearchParams(location.search).get('creator')==='1'){S.user={name:'Creator',plan:'Creator'};go()}else if(P){S.user={name:'Member',plan:'Lifetime'};go()}else{home()}
 </script>
 </body>
 </html>
