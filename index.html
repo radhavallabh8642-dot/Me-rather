@@ -42,7 +42,7 @@ input,textarea{width:100%;background:#fffdf7;border:1px solid var(--line);color:
 .quest{text-align:center;font-size:20px;padding:10px 0 18px;line-height:1.4}
 .hide{display:none}
 .lock{text-align:center;color:var(--mut)}
-</style>
+.host{display:flex;gap:12px;align-items:center;background:#fffaf0;border:1px solid var(--gold2);border-radius:16px;padding:12px;margin-bottom:12px}.av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0f6b54,#b8912f);display:flex;align-items:center;justify-content:center;font-size:26px;flex:none}</style>
 </head>
 <body>
 <div class="wrap" id="app"></div>
@@ -64,6 +64,65 @@ const TRUTH=["What's the most expensive lie you've ever told?","Who in your life
 const DARE=["Send a voice note singing to your best friend.","Post a childhood photo with a dramatic caption.","Text someone you miss: 'thinking of you'.","Do 10 jumping jacks while saying your biggest dream out loud."];
 const NAMES=["Aria","Kenji","Lucía","Omar","Zoe","Dev","Mila","Jon","Amara","Yuki"],LOC=["Mumbai","Tokyo","Madrid","Cairo","Lagos","Toronto","Seoul","Paris","Dubai","Sydney"];
 const CM=["Tough one, I went with my gut.","Anyone saying the other side is lying.","I changed my mind three times.","My partner disagrees completely 😂","This one kept me up at night.","Honestly easy for me.","Ask me again tomorrow."];
+
+Q.push(
+["Always be 10 minutes late","Always be 20 minutes early","Life"],
+["Have no internet for a year","Have no music for a year","Life"],
+["Fight 1 horse-sized duck","Fight 100 duck-sized horses","Funny"],
+["Speak every language","Play every instrument","Skills"],
+["Be invisible for a day","Fly for a day","Fun"],
+["Never feel cold again","Never feel hungry again","Life"],
+["Know every secret about your friends","Have them know every secret about you","Spicy"],
+["Win 10 lakh today","Win 1 crore at age 60","Money"],
+["Only eat your favourite food forever","Never eat it again but eat anything else","Food"],
+["Be the funniest in the room","Be the smartest in the room","Social"],
+["Live in the past for a week","Live in the future for a week","Mind"],
+["Have a rewind button for your life","Have a pause button for your life","Mind"],
+["Your phone always at 1% battery","Your phone always at 100% but slow","Tech"],
+["Be a famous gamer","Be a famous singer","Fame"],
+["Get paid for sleeping","Get paid for eating","Funny"],
+["Lose all your savings","Lose all your friends","Moral"],
+["Only whisper forever","Only shout forever","Funny"],
+["Have unlimited data but no signal at home","Have perfect signal but 1GB a month","Tech"],
+["Be stuck in a lift with your ex","Be stuck in a lift with your boss","Spicy"],
+["Know when everyone lies to you","Be able to lie perfectly yourself","Mind"],
+["Walk backwards everywhere","Hop on one leg everywhere","Funny"],
+["Have a pet dragon the size of a cat","Have a pet cat the size of a dragon","Funny"],
+["Always tell the truth","Always be believed","Moral"],
+["Live on a beach with no wifi","Live in a city with perfect wifi, no nature","Life"],
+["Redo your school years","Skip straight to retirement","Life"],
+["Eat a spicy pepper every day","Eat plain boiled food every day","Food"],
+["Be a hero nobody knows","Be a villain everybody loves","Moral"],
+["Never use social media again","Never watch a movie again","Life"],
+["Get everything you want but no one claps","Get applause for everything but get little","Fame"],
+["Have free flights for life","Have free food for life","Money"],
+["Be 7 feet tall","Be 4 feet tall","Funny"],
+["Hear a tiny alarm in your head every hour","Smell something odd every hour","Funny"],
+["Take a pill that makes you forget your worst day","Keep it and stay wiser","Mind"],
+["Have a twin who lives your life better","Be the one who lives it worse","Mind"],
+["Always have to sing instead of talk","Always have to dance instead of walk","Funny"],
+["Read the last page of every story first","Never find out how any story ends","Mind"],
+["Be a billionaire with one true friend","Be middle class with ten true friends","Money"],
+["Never lose anything again","Never forget anything again","Skills"],
+["Replay one perfect birthday forever","Have one perfect birthday you never remember","Mind"],
+["Control the weather","Control time zones","Fun"],
+["Trade lives with your best friend for a month","Trade lives with a stranger for a year","Moral"],
+["Talk to animals","Talk to machines","Skills"],
+["Have your search history made public","Have your photo gallery made public","Spicy"],
+["Eat a bowl of ice cubes","Drink a glass of pickle juice","Food"],
+["Have 3 extra hours every day","Have 3 extra years of life","Mind"],
+["Be remembered forever for something silly","Be forgotten but be quietly kind","Moral"],
+["Never be bored again","Never be sad again","Mind"],
+["Always know the time","Always know the weather","Fun"]
+);
+TRUTH.push("Who was your first crush?","What's the most embarrassing thing in your gallery?","What's a lie you told that you still regret?","What's your biggest fear you rarely admit?","Which friend would you trust with your phone password?","What's the worst gift you've ever given?","What's the most childish thing you still do?","Who would you call first in an emergency?","What's the silliest thing you've cried about?","What's one thing you'd change about yourself?","Have you ever pretended to be asleep to avoid someone?","What's the last thing you searched for?","What's your guilty pleasure song?","What's the biggest risk you've taken?","Who do you scroll through the most on social media?","What's a rule you always break?","What's the nicest thing a stranger has done for you?","What's your most useless talent?","What did you want to be as a kid?","What's your worst habit?","What's the last white lie you told?","Which app do you waste the most time on?","What's the most awkward moment of your life?","What would you do with a day off and no limits?","Who do you miss most right now?","What's something you're proud of but never mention?");
+DARE.push("Talk in a funny accent for the next 3 minutes.","Do your best impression of a famous person.","Send a heart emoji to the 5th person in your chats.","Dance for 20 seconds with no music.","Say the alphabet backwards, fast.","Tell a joke and make someone laugh.","Do 15 squats while counting out loud.","Speak only in questions for the next 2 minutes.","Draw a quick portrait of someone nearby.","Sing the chorus of any song you like, out loud.","Balance a spoon on your nose for 10 seconds.","Make up a rap about your day.","Hold a plank for 30 seconds.","Say 'I love peanut butter' in 5 different voices.","Try to touch your nose with your tongue.","Compliment the first person you see.","Do a runway walk across the room.","Describe your day like a movie narrator.","Make a funny face and hold it for 10 seconds.","Say a tongue twister three times fast.","Do your best robot dance.","Act out a movie scene without speaking.","Text your best friend a funny meme right now.","Stand on one leg for 30 seconds.","Make up a 10-second advert for a pen.","Tell a made-up story in exactly 3 sentences.");
+const HP=["Psst… option {X} is obviously the move. Trust me.","Everyone secretly picks {X}. Don't be boring.","I'd pick {X}, but I once lost a bet to a pigeon.","Option {X}. Don't ask why. Just… {X}.","My gut says {X}. My gut also says pizza at 3am.","Pick {X} and I'll owe you a favour. (I won't pay.)","Careful, {X} is a trap. Or is it? Pick it.","Take {X}. Future you will thank me or text me angrily.","Whatever you do, do NOT pick {X}. …Okay, definitely pick {X}.","I have a feeling about {X}. It's a very strong feeling."];
+const FACTS=["Honey never spoils. Edible honey has been found in ancient Egyptian tombs.","Octopuses have three hearts.","Bananas are berries, but strawberries aren't.","A day on Venus is longer than its year.","Wombat poop is shaped like cubes.","Sharks existed before trees did.","Oxford University is older than the Aztec Empire.","Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid.","The Eiffel Tower grows taller in summer because heat expands the metal.","Crows can recognise individual human faces.","A group of flamingos is called a flamboyance.","There are more possible chess games than atoms in the observable universe."];
+const DK={};function pick(key,arr){if(!DK[key]||!DK[key].length)DK[key]=[...arr.keys()].sort(()=>Math.random()-.5);return arr[DK[key].pop()]}
+function draw(){if(!S.deck||!S.deck.length){S.deck=[...Q.keys()].sort(()=>Math.random()-.5);if(S.deck[S.deck.length-1]===S.i&&S.deck.length>1)S.deck.reverse()}return S.deck.pop()}
+function hostBox(done,X){const hh=S.hint;let t;if(!done)t=HP[hh.l].split("{X}").join(X);else t=(S.pick===hh.s?"Ha! You listened to me. Bold move. ":"You ignored me... respect. ")+"<br><small>🧠 Fun fact: "+FACTS[hh.f]+"</small>";
+return `<div class="host"><div class="av">🎩</div><div><b>Duke Dilemma</b> <small>your host</small><br><i>${t}</i></div></div>`}
 let S={user:null,i:0,pick:null,tab:"play",plan:null,seed:[],mine:{},votes:{},coms:{}};
 const $=h=>document.getElementById("app").innerHTML=h;
 const rnd=n=>Math.floor(Math.random()*n);
@@ -88,7 +147,7 @@ $(`<div class="logo">◆ DILEMMA ◆</div><h2 class="title" style="font-size:26p
 <p class="lock" style="font-size:13px">Demo checkout: connect a payment gateway (e.g. Razorpay) to charge for real.</p>
 <button class="btn ghost" onclick="home()">Back</button></div>`)}
 function buy(p){S.user={name:"Member",plan:p};go()}
-function go(){S.i=rnd(Q.length);S.pick=null;S.tab="play";render()}
+function go(){S.i=draw();S.pick=null;S.tab="play";render()}
 function render(){
 if(!active()){return $(`<div class="card lock"><h2 style="color:var(--gold)">Trial ended</h2><p>Subscribe to keep playing.</p><button class="btn" onclick="subs()">Subscribe</button></div>`)}
 const u=S.user,t=trialLeft();
@@ -100,8 +159,8 @@ function play(){
 const q=Q[S.i],k=q[0],v=S.votes[S.i]||(S.votes[S.i]=[30+rnd(40),0]);
 if(!S.coms[S.i])S.coms[S.i]=Array.from({length:4},()=>({n:NAMES[rnd(10)],l:LOC[rnd(10)],t:CM[rnd(7)],s:rnd(2)}));
 let h=`<div class="bar"><span class="tag">${q[2]}</span><span>Question ${S.i+1}/${Q.length}</span></div>`;
-const done=S.pick!==null,a=v[0],b=100-a;
-h+=`<button class="opt ${S.pick===0?"pick":""}" ${done?"disabled":""} onclick="choose(0)"><div class="fill" style="width:${done?a:0}%"></div><span>${q[0]}</span>${done?`<span class="pct">${a}%</span>`:""}</button><div class="or">— OR —</div>
+const done=S.pick!==null,a=v[0],b=100-a;if(S.hintFor!==S.i){S.hintFor=S.i;S.hint={s:rnd(2),l:rnd(HP.length),f:rnd(FACTS.length)}}const X=S.hint.s?"B":"A";
+h+=hostBox(done,X)+`<button class="opt ${S.pick===0?"pick":""}" ${done?"disabled":""} onclick="choose(0)"><div class="fill" style="width:${done?a:0}%"></div><span>${q[0]}</span>${done?`<span class="pct">${a}%</span>`:""}</button><div class="or">— OR —</div>
 <button class="opt ${S.pick===1?"pick":""}" ${done?"disabled":""} onclick="choose(1)"><div class="fill" style="width:${done?b:0}%"></div><span>${q[1]}</span>${done?`<span class="pct">${b}%</span>`:""}</button>`;
 if(!done)return h+`<p class="lock">🔒 Comments from around the world unlock after you choose.</p>`;
 h+=`<div class="card"><h3 style="color:var(--gold);margin-bottom:6px">🌍 Worldwide comments</h3>`+S.coms[S.i].map(c=>`<div class="cm"><b>${c.n}</b> <small>${c.l} · chose ${c.s?"B":"A"}</small><br>${c.t}</div>`).join("")+
@@ -112,11 +171,11 @@ if(S.user.guest)S.user.left--;render()}
 function addC(){const e=document.getElementById("ci");if(!e.value.trim())return;S.coms[S.i].unshift({n:"You",l:"Your city",t:e.value.trim().slice(0,200),s:S.pick});render()}
 function next(){
 if(S.user.guest&&S.user.left<=0){return $(`<div class="card lock"><h2 style="color:var(--gold)">Daily guest limit reached</h2><p>Start the free trial or subscribe for unlimited dilemmas.</p><button class="btn" onclick="trial()">Free 1-day trial</button> <button class="btn ghost" onclick="subs()">Subscribe</button></div>`)}
-let n;do{n=rnd(Q.length)}while(n==S.i&&Q.length>1);S.i=n;S.pick=null;render()}
+S.i=draw();S.pick=null;render()}
 function quest(){
 if(S.user.guest)return `<div class="card lock"><h3 style="color:var(--gold)">Members only</h3><p>Spicy Truth & Dare quests unlock with the trial or a subscription.</p><button class="btn" onclick="trial()">Start free trial</button></div>`;
 return `<div class="card"><div class="quest" id="qt">Pick your poison…</div><div class="row"><button class="btn" style="flex:1" onclick="q('T')">Truth</button><button class="btn ghost" style="flex:1" onclick="q('D')">Dare</button></div></div>`}
-function q(t){const a=t=="T"?TRUTH:DARE;document.getElementById("qt").innerHTML=(t=="T"?"💬 <b>Truth</b><br>":"🔥 <b>Dare</b><br>")+a[rnd(a.length)]}
+function q(t){const a=t=="T"?TRUTH:DARE;document.getElementById("qt").innerHTML=(t=="T"?"💬 <b>Truth</b><br>":"🔥 <b>Dare</b><br>")+pick(t,a)}
 const H=["93ed3c12371f358d568146cd15adf817d9dc288ed69e15a92f18d37fe7fab5e3", "7ca15d55235284bf3041048b586dfe007f3d702d4a89f79c654cfc51fd75a339", "e99767ad6006490c20698e3c592f226d3b7ac6a475ba2f927f7ea855390dcbbd", "6b162fc5a35ad3530046527864a3e55fd9706ef807bf91d11430cbbabe01a56d", "7a48b180c4f8675af334ebc21d3b3e71b75cfe6d3d0fddd79bffb130f56b5c65", "7bff3f4d19c99c985ec459a52c165f0bd8c7d1cbbcc57b49b536ff1cee3cd963", "7b5ac677ff3e5c1374e128587010b7456c512e71dbaa758126ee30e3ff81d015", "99591ad37b2fd6e2dc12bb3f508ca4134845a30262cf6cb4fec68414002af697", "55b024d0eeabfacacc0c09acfa5092c35c9e17d3850de19a557ebf2649e6f70c", "5974f0947a818ae117bc56147d3000b637e54fe89a3504b4ed685acc3a23ea44", "e8e0fb5cdcf4102d84099984c6baa87f9516009c6877057c296220a9ab9fad7a", "73fad06e5afa7824abfea9076bb8fa01f24b4430c979b26d92a83366b08842e1", "d5d0800e5bb6701bd4cb3c7600327ad20928082db5507ab14883e8a105832ce5", "74e99d17fa38570f3d99e2628fce65381860ecf58429bf6b9fb4f178b4b1bb06", "82ac45bf4cd83022c04532a819997e4a17fd3d4e918848f014890674824724b4", "97ce30350234483679050edb43d6b484783258569e55daadacfb0421ded864b4", "5129ab211f42c914dc07a29b9f8026af8ddb5f5b6a052ce4fd8d57a4edb17d50", "138f698758aa7914ffab1ad650f0dc12e43aa71ca2d874e999d1f655c4fe416b", "7cf65a5abc118eb7631b6faf98c61195b07f054d43fe1466b3ab0b4f5b5c97f6", "07e4fac79807c8c441cb6ac2ae6a376112006356f39418c09418aa7a2e9a5d44", "2fc67334d5a2d8c86faaf5aee5367cdf700380962ae31f438b5a8818d7a6d581", "fb6554d1366a3b9d20611064ab640706174a8971fe41d21ba2a8f62756308256", "e0b58878fd132a9d3fc9e158e997d7f3a7127bdaeee4c8a36eb064bafd04f836", "545eb53d4694951129962ff994f69f6b51a1286fef673806e95e0cc052cbbd11", "83cd179a3a90c13cc661f8672dc7287e7777bd917bda29b0ab212fb2d5fc7ad7", "1f20d06e2db47ebfa627c275466546ff481885ad6c3871fe681a8a0f63825b05", "c564375a6138969a0ab61e4704b70216226c24a4f7543d3d5f8100c8087fc4bc", "2acbdaddd3c98b05df3778f65b8fbbb9cfda30fcb3bbc803fff3691266643cfe", "4406608a676544caa2f5caccde24a27c6003943739baeff0db91a6ff3b30529b", "c648edb3a7d17993d1dd3a44b254b97af8b9ae453fc875bffcfa8a77b5725891", "32f5bead3e7e6aa1c4d67179da9a70bdc54d7ea54e866bc0cd95836785e719b1", "5936af10e35528e13565ac49f0a722291b9fc570a530679827e9ad9a468518a1"];
 async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
 function codePage(msg){$(`<div class="logo">◆ DILEMMA ◆</div><h2 class="title" style="font-size:26px">Free pass</h2><div class="card"><p class="lock">Enter your lifetime pass code</p><input id="pc" placeholder="DLM-XXXX-XXXX" autocapitalize="characters"><p style="color:#a33;min-height:20px">${msg||""}</p><div class="row"><button class="btn" onclick="redeem()">Unlock</button><button class="btn ghost" onclick="home()">Back</button></div></div>`)}
